@@ -255,7 +255,7 @@ This allows users to revisit previous analyses and monitor their nutrition journ
 
 🚀 **Try DietSpring here:**
 
-🔗 **https://dietspring-prod.vercel.app/**
+🔗 **https://diet-spring-prod.vercel.app/**
 
 ---
 

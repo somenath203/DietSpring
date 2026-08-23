@@ -18,7 +18,6 @@ import {
   SheetContent,
   SheetDescription,
   SheetHeader,
-  SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet"
 import SignOutLink from './SignOutLink';
@@ -37,7 +36,7 @@ const Navbar = async () => {
 
           <IoFitnessSharp size={70} className="text-green-500 font-bold" />
 
-          <span className="text-4xl tracking-widest roboto-bold">FitBites</span>
+          <span className="text-4xl tracking-widest roboto-bold">DietSpring</span>
 
         </Link>
 

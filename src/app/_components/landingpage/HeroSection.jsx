@@ -14,18 +14,18 @@ const HeroSection = async () => {
         <div className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
           <p className="text-gray-500 text-base lg:text-lg mb-4 flex flex-col lg:flex-row items-center gap-2 lg:gap-3">
             Your All-in-One Nutrition Hub{" "}
-            <span className="text-lg lg:text-2xl">🥑</span>{" "}
+            <span className="text-lg lg:text-2xl">🌱</span>{" "}
           </p>
 
           <h1 className="text-6xl lg:text-7xl mb-4 font-bold tracking-widest text-green-500 roboto-bold">
-            FitBites
+            DietSpring
           </h1>
 
           <p className="mb-8 leading-7 text-base lg:text-xl">
-            FitBites helps you eat healthier with personalized meal plans based
+            DietSpring helps you eat healthier with personalized meal plans based
             on your health goals and food preferences. It also provides recipe
             suggestions and calorie tracking to make healthy eating simple and
-            easy. Start your journey towards better nutrition with FitBites and
+            easy. Start your journey towards better nutrition with DietSpring and
             enjoy eating healthy every day!
           </p>
 
@@ -48,7 +48,7 @@ const HeroSection = async () => {
           <Image
             className="object-cover object-center rounded-xl shadow-xl"
             src="/landing_page_image.jpeg"
-            alt="FitBites Hero"
+            alt="DietSpring Hero"
             width={720}
             height={600}
           />

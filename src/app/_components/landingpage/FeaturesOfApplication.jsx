@@ -19,7 +19,7 @@ const FeaturesOfApplication = () => {
       id: 1,
       title: "Plan Meals",
       description:
-        "Create personalized meal plans based on your health goals, diet, and food preferences. FitBites helps you plan healthy meals with ease.",
+        "Create personalized meal plans based on your health goals, diet, and food preferences. DietSpring helps you plan healthy meals with ease.",
       icon: GiMeal,
     },
     {

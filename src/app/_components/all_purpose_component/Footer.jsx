@@ -10,7 +10,7 @@ const Footer = () => {
  
             <span className="hidden lg:block">|</span>
 
-            <span>FitBites</span>
+            <span>DietSpring</span>
 
             <span className="hidden lg:block">|</span>
 

@@ -6,7 +6,7 @@ import './globals.css';
 import Footer from './_components/all_purpose_component/Footer';
 
 export const metadata = {
-  title: 'FitBites',
+  title: 'DietSpring',
   description:
     'Your personalized nutrition companion that crafts tailored meal plans, dynamic recipe suggestions, and caloric tracking, empowering you to achieve your health goals effortlessly.',
 };

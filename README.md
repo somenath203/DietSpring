@@ -20,7 +20,7 @@
 
 🎬 **Click the thumbnail below to watch the complete demo video of DietSpring on YouTube.**
 
-[![DietSpring Demo Video](https://github.com/user-attachments/assets/64c95a61-bf34-422f-9d59-35e4b79633ea)](https://www.youtube.com/watch?v=f5BVZJVF8mQ)
+[![DietSpring Demo Video](https://github.com/user-attachments/assets/ace8e72e-3017-4167-895a-1f4c011d771b)](https://www.youtube.com/watch?v=f5BVZJVF8mQ)
 
 ---
 

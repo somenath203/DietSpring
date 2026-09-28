@@ -18,7 +18,7 @@ _🥗 **DietSpring — Your AI-powered personalized nutrition companion for smar
 
 ---
 
-# ✨ Introduction
+## ✨ Introduction
 
 DietSpring is an **AI-powered personalized nutrition and diet web application** that helps users make healthier food choices based on their **personal profile, dietary preferences, and health goals**.
 
@@ -28,7 +28,7 @@ Powered by **Google Gemini 3.1 Flash Lite**, DietSpring generates **personalized
 
 ---
 
-# ❓ What Problem Does DietSpring Solve?
+## ❓ What Problem Does DietSpring Solve?
 
 Many people want to eat healthier but often struggle with questions like:
 
@@ -42,9 +42,9 @@ Many people want to eat healthier but often struggle with questions like:
 
 ---
 
-# 🌟 Features
+## 🌟 Features
 
-## 👤 Profile Setup
+### 👤 Profile Setup
 
 > **Complete your health profile to unlock all AI-powered features.**
 
@@ -63,13 +63,13 @@ Many people want to eat healthier but often struggle with questions like:
 
 ---
 
-## 🍽️ AI Meal Planner
+### 🍽️ AI Meal Planner
 
 > **Generate a personalized one-day meal plan tailored to your health profile.**
 
 Generate a personalized one-day meal plan using:
 
-### 👤 User Profile
+#### 👤 User Profile
 
 - Name
 - Age
@@ -79,7 +79,7 @@ Generate a personalized one-day meal plan using:
 - Activity Level
 - Allergies
 
-### 🎯 User Requirements
+#### 🎯 User Requirements
 
 - Health Goal
 - Diet Preference
@@ -109,13 +109,13 @@ The generated meal plan includes:
 
 ---
 
-## 🍳 AI Recipe Suggestion
+### 🍳 AI Recipe Suggestion
 
 > **Receive personalized recipes that match your dietary needs and cooking preferences.**
 
 Generate a personalized recipe using:
 
-### 👤 User Profile
+#### 👤 User Profile
 
 - Name
 - Age
@@ -125,7 +125,7 @@ Generate a personalized recipe using:
 - Activity Level
 - Allergies
 
-### 🎯 User Requirements
+#### 🎯 User Requirements
 
 - Meal Type
 - Time Available for Cooking
@@ -157,13 +157,13 @@ Each generated recipe includes:
 
 ---
 
-## 🔥 AI Calorie Tracker
+### 🔥 AI Calorie Tracker
 
 > **Analyze your meals and receive personalized nutritional feedback.**
 
 Analyze a meal using:
 
-### 👤 User Profile
+#### 👤 User Profile
 
 - Name
 - Age
@@ -173,7 +173,7 @@ Analyze a meal using:
 - Activity Level
 - Allergies
 
-### 🍽️ User Meal Information
+#### 🍽️ User Meal Information
 
 - Meal Type
 - Foods Eaten
@@ -201,15 +201,15 @@ The AI provides:
 
 ---
 
-# ✅ Input Validation
+## ✅ Input Validation
 
 > **DietSpring validates user inputs on the server before sending them to the AI model.**
 
 Input validation helps prevent unnecessarily large or invalid values from being included in AI prompts and ensures that specific fields follow the expected format.
 
-## 👤 Profile Validation
+### 👤 Profile Validation
 
-### Allergies
+#### Allergies
 
 - Allows a maximum of **5 allergies**.
 - Each allergy can contain a maximum of **25 characters**.
@@ -219,7 +219,7 @@ Input validation helps prevent unnecessarily large or invalid values from being 
 
 - The **"No allergies"** check is case-insensitive.
 
-### Food Preferences
+#### Food Preferences
 
 - Allows a maximum of **5 food preferences**.
 - Each food preference can contain a maximum of **25 characters**.
@@ -231,9 +231,9 @@ Input validation helps prevent unnecessarily large or invalid values from being 
 
 ---
 
-## 🍽️ Meal Planner Validation
+### 🍽️ Meal Planner Validation
 
-### Daily Calorie Target
+#### Daily Calorie Target
 
 - Accepts a numeric calorie target.
 - Accepts **"No Idea"** when the user does not know their calorie target.
@@ -242,7 +242,7 @@ Input validation helps prevent unnecessarily large or invalid values from being 
 - Calorie targets must be between **500 and 10,000 calories**.
 - The calorie target cannot be longer than **15 characters**.
 
-### Food Preferences
+#### Food Preferences
 
 - Allows a maximum of **5 food preferences**.
 - Each food preference can contain a maximum of **25 characters**.
@@ -251,9 +251,9 @@ Input validation helps prevent unnecessarily large or invalid values from being 
 
 ---
 
-## 🍳 Recipe Suggestion Validation
+### 🍳 Recipe Suggestion Validation
 
-### Daily Calorie Target
+#### Daily Calorie Target
 
 - Accepts a numeric calorie target.
 - Accepts **"No Idea"** when the user does not know their calorie target.
@@ -261,7 +261,7 @@ Input validation helps prevent unnecessarily large or invalid values from being 
 - The **"No Idea"** check is case-insensitive.
 - Calorie targets must be between **500 and 10,000 calories**.
 
-### Ingredients to Include
+#### Ingredients to Include
 
 - Allows a maximum of **5 ingredients**.
 - Each ingredient can contain a maximum of **25 characters**.
@@ -271,7 +271,7 @@ Input validation helps prevent unnecessarily large or invalid values from being 
 
 - The **"No ingredients"** check is case-insensitive.
 
-### Ingredients to Exclude
+#### Ingredients to Exclude
 
 - Allows a maximum of **5 ingredients**.
 - Each ingredient can contain a maximum of **25 characters**.
@@ -283,21 +283,21 @@ Input validation helps prevent unnecessarily large or invalid values from being 
 
 ---
 
-## 🔥 Calorie Tracker Validation
+### 🔥 Calorie Tracker Validation
 
-### Foods Eaten
+#### Foods Eaten
 
 - Allows a maximum of **8 foods**.
 - Each food name can contain a maximum of **25 characters**.
 - Empty values are removed from comma-separated input.
 
-### Portion Sizes
+#### Portion Sizes
 
 - Allows portion sizes for a maximum of **8 foods**.
 - Each portion size can contain a maximum of **25 characters**.
 - Empty values are removed from comma-separated input.
 
-### Approximate Total Calories
+#### Approximate Total Calories
 
 - Accepts a numeric calorie value.
 - Accepts **"No Idea"** when the user does not know the total calories.
@@ -305,7 +305,7 @@ Input validation helps prevent unnecessarily large or invalid values from being 
 - The **"No Idea"** check is case-insensitive.
 - The value cannot be longer than **15 characters**.
 
-### Approximate Total Macronutrients
+#### Approximate Total Macronutrients
 
 - Accepts **"No Idea"** when the user does not know their approximate macronutrients.
 - The value cannot be longer than **30 characters**.
@@ -313,7 +313,7 @@ Input validation helps prevent unnecessarily large or invalid values from being 
 
 ---
 
-## 🛡️ Server-Side Validation
+### 🛡️ Server-Side Validation
 
 DietSpring performs these validations inside **Next.js Server Actions** before the submitted data is used to construct the AI prompt.
 
@@ -321,7 +321,7 @@ This ensures that the application validates important input constraints on the s
 
 ---
 
-# 📂 History
+## 📂 History
 
 > **Never lose track of your previous AI-generated nutrition records.**
 
@@ -343,7 +343,7 @@ This allows users to revisit previously generated nutrition recommendations and 
 
 ---
 
-# 🛠️ Technologies Used
+## 🛠️ Technologies Used
 
 | Category                       | Technologies                                   |
 | :----------------------------- | :--------------------------------------------- |
@@ -356,11 +356,11 @@ This allows users to revisit previously generated nutrition recommendations and 
 
 ---
 
-# 💻 Running the Project Locally
+## 💻 Running the Project Locally
 
 > **Follow these steps to run DietSpring on your local machine.**
 
-## 1. Clone the Repository
+### 1. Clone the Repository
 
 Clone the DietSpring repository to your local machine:
 
@@ -376,7 +376,7 @@ cd DietSpring
 
 ---
 
-## 2. Configure Environment Variables
+### 2. Configure Environment Variables
 
 Create a `.env` file in the root directory of the project and configure all the required environment variables according to the provided `.env.example` file.
 
@@ -396,7 +396,7 @@ NEXT_PUBLIC_CLERK_SIGN_UP_FALLBACK_REDIRECT_URL=
 GOOGLE_GEMINI_API_KEY=
 ```
 
-### Environment Variables
+#### Environment Variables
 
 | Variable                                          | Purpose                                              |
 | :------------------------------------------------ | :--------------------------------------------------- |
@@ -411,7 +411,7 @@ GOOGLE_GEMINI_API_KEY=
 
 ---
 
-## 3. Install Dependencies
+### 3. Install Dependencies
 
 Install all project dependencies using pnpm:
 
@@ -421,7 +421,7 @@ pnpm install
 
 ---
 
-## 4. Start the Development Server
+### 4. Start the Development Server
 
 Start the Next.js development server:
 
@@ -433,7 +433,7 @@ Once the development server starts, open the local URL shown in your terminal to
 
 ---
 
-# 🌐 Live Website
+## 🌐 Live Website
 
 🚀 **Try DietSpring here:**
 
@@ -441,7 +441,7 @@ Once the development server starts, open the local URL shown in your terminal to
 
 ---
 
-# ⚠️ Disclaimer
+## ⚠️ Disclaimer
 
 > **Important**
 

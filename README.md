@@ -2,76 +2,73 @@
 
 [![DietSpring Demo Video](https://github.com/user-attachments/assets/ace8e72e-3017-4167-895a-1f4c011d771b)](https://www.youtube.com/watch?v=f5BVZJVF8mQ)
 
-_🥗 **DietSpring — Your AI-powered personalized nutrition companion for smarter meal planning, recipe suggestions, and nutritional insights.** Click the thumbnail above to watch the complete demo video of this project on YouTube._
+> **DietSpring** is an AI-powered personalized nutrition and diet application that uses Google Gemini 3.1 Flash Lite to generate personalized meal plans, recipe suggestions, and meal-based calorie and nutritional analysis.
 
-## 📚 Contents
-
-- [✨ Introduction](#-introduction)
-- [❓ What Problem Does DietSpring Solve?](#-what-problem-does-dietspring-solve)
-- [🌟 Features](#-features)
-- [✅ Input Validation](#-input-validation)
-- [📂 History](#-history)
-- [🛠️ Technologies Used](#️-technologies-used)
-- [💻 Running the Project Locally](#-running-the-project-locally)
-- [🌐 Live Website](#-live-website)
-- [⚠️ Disclaimer](#️-disclaimer)
+**Click the image above to watch the DietSpring demo video.** 🎥
 
 ---
 
-## ✨ Introduction
+## 📖 Table of Contents
 
-DietSpring is an **AI-powered personalized nutrition and diet web application** that helps users make healthier food choices based on their **personal profile, dietary preferences, and health goals**.
+- [Introduction](#-introduction)
+- [What Problem Does DietSpring Solve?](#-what-problem-does-dietspring-solve)
+- [Features](#-features)
+  - [Profile Setup](#1-profile-setup)
+  - [Meal Planner](#2-meal-planner)
+  - [Recipe Suggestion](#3-recipe-suggestion)
+  - [Calorie Tracker](#4-calorie-tracker)
 
-Powered by **Google Gemini 3.1 Flash Lite**, DietSpring generates **personalized meal plans**, **recipe suggestions**, and **calorie analysis** by using the user's health profile and nutritional requirements.
+- [Input Validation](#-input-validation)
+- [History](#-history)
+- [Technologies Used](#-technologies-used)
+- [Run DietSpring Locally](#-run-dietspring-locally)
+- [Live Website](#-live-website)
+- [Disclaimer](#-disclaimer)
 
-> 💡 **DietSpring is designed to make healthy eating simple, personalized, and easy to follow.**
+---
+
+## 📖 Introduction
+
+DietSpring is an AI-powered personalized nutrition and diet application designed to help users make more informed food and meal decisions.
+
+After completing their health profile, users can use DietSpring to:
+
+- Generate personalized one-day meal plans.
+- Get recipe suggestions based on their requirements.
+- Analyze the approximate calories and macronutrients of a meal.
+- Get meal suggestions based on their health goals and dietary preferences.
+
+DietSpring uses **Google Gemini 3.1 Flash Lite** to generate the AI-powered responses.
 
 ---
 
 ## ❓ What Problem Does DietSpring Solve?
 
-Many people want to eat healthier but often struggle with questions like:
+Planning meals and understanding nutritional information can sometimes be difficult.
 
-- 🥗 What should I eat today?
-- 🍳 Which recipe matches my diet?
-- 🔥 How many calories am I eating?
-- ⚖️ Is my meal nutritionally balanced?
-- 🎯 Which foods can support my health goal?
+Users may have questions such as:
 
-**DietSpring addresses these problems by using Artificial Intelligence to generate personalized nutrition recommendations based on each user's health profile, dietary preferences, and food choices.**
+- What should I eat today?
+- What recipe can I prepare according to my dietary preferences?
+- Approximately how many calories and macronutrients does my meal contain?
+- What can I improve about my current meal?
+- What types of meals may support my health goal?
+- How can I plan balanced meals according to my requirements?
 
----
-
-## 🌟 Features
-
-### 👤 Profile Setup
-
-> **Complete your health profile to unlock all AI-powered features.**
-
-- Secure authentication using **Clerk**.
-- Users must complete their health profile before accessing the application's AI-powered features.
-- Stores important health information, including:
-  - First Name
-  - Last Name
-  - Age
-  - Gender
-  - Height
-  - Weight
-  - Activity Level
-  - Allergies
-  - Food Preferences
+DietSpring provides AI-generated suggestions based on the information provided by the user.
 
 ---
 
-### 🍽️ AI Meal Planner
+# ✨ Features
 
-> **Generate a personalized one-day meal plan tailored to your health profile.**
+## 1. Profile Setup
 
-Generate a personalized one-day meal plan using:
+Users must complete their health profile before using the main DietSpring features.
 
-#### 👤 User Profile
+The profile contains:
 
-- Name
+- First Name
+- Last Name
 - Age
 - Gender
 - Height
@@ -79,341 +76,296 @@ Generate a personalized one-day meal plan using:
 - Activity Level
 - Allergies
 
-#### 🎯 User Requirements
+The profile information is used when generating personalized meal plans, recipes, and nutritional analysis.
+
+Authentication and user management are handled using **Clerk**.
+
+---
+
+## 2. Meal Planner 🍽️
+
+DietSpring can generate a **personalized one-day meal plan** based on the user's profile and selected requirements.
+
+### User Inputs
+
+Users provide:
 
 - Health Goal
 - Diet Preference
 - Daily Calorie Target
-- Food Preferences
+- Personal Food Preferences
 
-The generated meal plan includes:
+The user's profile information, including allergies, is also considered.
 
-- 🍳 Breakfast
-- 🍎 Morning Snack
-- 🍛 Lunch
-- 🥜 Evening Snack
-- 🍽️ Dinner
-- 🔥 Estimated Calories
-- 💪 Estimated Protein
-- 🌾 Estimated Carbohydrates
-- 🥑 Estimated Fat
-- 📊 Total Daily Nutrition Summary
+### Generated Meal Plan
 
-**Additional features**
+The AI generates:
 
-- Automatically estimates a daily calorie target if the user enters **"No Idea"**.
-- Respects the user's allergies and food preferences.
-- Generates practical and balanced meals.
-- Considers the user's health goal and diet preference.
-- Presents the meal plan using headings and bullet points for better readability.
+- Breakfast
+- Morning Snack
+- Lunch
+- Evening Snack
+- Dinner
+
+For each meal, the generated response includes:
+
+- Meal name
+- Food items
+- Estimated calories
+- Estimated protein
+- Estimated carbohydrates
+- Estimated fat
+
+The response also includes the estimated total nutritional values for the entire day.
+
+### Additional Behavior
+
+- If the calorie target is set to **"No Idea"**, the AI is instructed to estimate an appropriate daily calorie target.
+- The AI is instructed to respect the user's allergies.
+- Personal food preferences are considered when generating the plan.
+- The selected health goal is considered.
+- The selected diet preference is followed.
+- The generated meal plan is designed to be practical and balanced.
+- The response is formatted using headings and bullet points rather than tables.
 
 ---
 
-### 🍳 AI Recipe Suggestion
+## 3. Recipe Suggestion 🍳
 
-> **Receive personalized recipes that match your dietary needs and cooking preferences.**
+DietSpring can generate a personalized recipe based on the user's requirements.
 
-Generate a personalized recipe using:
+### User Inputs
 
-#### 👤 User Profile
-
-- Name
-- Age
-- Gender
-- Height
-- Weight
-- Activity Level
-- Allergies
-
-#### 🎯 User Requirements
+Users provide:
 
 - Meal Type
-- Time Available for Cooking
+- Cooking Time
 - Daily Calorie Target
 - Ingredients to Include
 - Ingredients to Exclude
 
-Each generated recipe includes:
+The user's profile and allergies are also considered.
 
-- 🍽️ Recipe Name
-- ⏱️ Estimated Preparation Time
-- 👨‍🍳 Estimated Cooking Time
-- 🔥 Estimated Total Calories
-- 🥦 Ingredients
-- 📖 Step-by-step Cooking Instructions
-- 💪 Estimated Protein
-- 🌾 Estimated Carbohydrates
-- 🥑 Estimated Fat
-- 💡 Healthy Tips or Alternatives
+### Generated Recipe
 
-**Additional features**
+The AI-generated recipe contains:
 
-- Automatically estimates a calorie target if the user enters **"No Idea"**.
-- Respects the user's allergies.
-- Takes requested ingredients into consideration.
-- Avoids ingredients specified by the user.
-- Generates recipes based on the selected meal type and available cooking time.
-- Presents recipes using headings and bullet points without tables.
+- Recipe Name
+- Estimated Preparation Time
+- Estimated Cooking Time
+- Estimated Total Calories
+- Ingredients
+- Step-by-step Cooking Instructions
+- Estimated Protein
+- Estimated Carbohydrates
+- Estimated Fat
+- Tips or Healthy Alternatives
+
+### Additional Behavior
+
+- If the calorie target is set to **"No Idea"**, the AI is instructed to estimate an appropriate calorie target.
+- The AI is instructed to respect the user's allergies.
+- Requested ingredients are considered whenever possible.
+- Excluded ingredients are instructed not to be used.
+- The selected meal type is considered.
+- The requested cooking time is considered.
+- The response is formatted using headings and bullet points rather than tables.
 
 ---
 
-### 🔥 AI Calorie Tracker
+## 4. Calorie Tracker 📊
 
-> **Analyze your meals and receive personalized nutritional feedback.**
+DietSpring can analyze a meal based on the food consumed by the user.
 
-Analyze a meal using:
+### User Inputs
 
-#### 👤 User Profile
-
-- Name
-- Age
-- Gender
-- Height
-- Weight
-- Activity Level
-- Allergies
-
-#### 🍽️ User Meal Information
+Users provide:
 
 - Meal Type
-- Foods Eaten
+- Food Items Taken
 - Portion Size of Each Food
 - Approximate Total Calories
 - Approximate Total Macronutrients
 
-The AI provides:
+The user's profile and allergies are also considered.
 
-- 🔥 Estimated Total Calories
-- 💪 Estimated Protein
-- 🌾 Estimated Carbohydrates
-- 🥑 Estimated Fat
-- 📊 Nutritional Analysis
-- ✅ Healthy Recommendations
-- 📈 Areas for Improvement
-- 🎯 Personalized Suggestions
+### Generated Analysis
 
-**Additional features**
+The AI-generated response contains:
 
-- Estimates calories if the user enters **"No Idea"**.
-- Estimates macronutrients if the user enters **"No Idea"**.
-- Uses the user's health profile to personalize the nutritional analysis.
-- Provides practical suggestions for improving future meals.
+- Estimated Total Calories
+- Estimated Protein
+- Estimated Carbohydrates
+- Estimated Fat
+- Nutritional Analysis
+- Positive Aspects of the Meal
+- Areas for Improvement
+- Healthier Alternatives or Suggestions
+- Personalized Recommendations
+
+### Additional Behavior
+
+- If the calorie amount is set to **"No Idea"**, the AI is instructed to estimate it.
+- If the macronutrient information is set to **"No Idea"**, the AI is instructed to estimate it.
+- The user's profile information is considered during the analysis.
+- The AI provides practical nutritional suggestions based on the provided meal information.
 
 ---
 
-## ✅ Input Validation
+# 🛡️ Input Validation
 
-> **DietSpring validates user inputs on the server before sending them to the AI model.**
+DietSpring performs **server-side input validation inside Next.js Server Actions before the data is included in the AI prompts**.
 
-Input validation helps prevent unnecessarily large or invalid values from being included in AI prompts and ensures that specific fields follow the expected format.
+This helps prevent invalid or unnecessarily large input values from being sent to the AI model.
 
-### 👤 Profile Validation
+## Profile Validation
 
-#### Allergies
+### Allergies
 
-- Allows a maximum of **5 allergies**.
+- Maximum of **5 allergies** can be entered.
 - Each allergy can contain a maximum of **25 characters**.
-- Empty values are removed after splitting comma-separated input.
-- **"No allergies"** is treated as an exclusive option.
-  - If **"No allergies"** is entered, no other allergy can be entered.
-
-- The **"No allergies"** check is case-insensitive.
-
-#### Food Preferences
-
-- Allows a maximum of **5 food preferences**.
-- Each food preference can contain a maximum of **25 characters**.
-- Empty values are removed after splitting comma-separated input.
-- **"No preferences"** is treated as an exclusive option.
-  - If **"No preferences"** is entered, no other food preference can be entered.
-
-- The **"No preferences"** check is case-insensitive.
+- Empty values created by comma-separated input are removed.
+- `"No allergies"` is case-insensitive.
+- If `"No allergies"` is entered, no other allergy can be entered.
 
 ---
 
-### 🍽️ Meal Planner Validation
+## Meal Planner Validation
 
-#### Daily Calorie Target
+### Daily Calorie Target
 
-- Accepts a numeric calorie target.
-- Accepts **"No Idea"** when the user does not know their calorie target.
-- Numeric validation allows digits only.
-- The **"No Idea"** check is case-insensitive.
-- Calorie targets must be between **500 and 10,000 calories**.
-- The calorie target cannot be longer than **15 characters**.
+The current Meal Planner Server Action allows:
 
-#### Food Preferences
+- A numeric value.
+- `"No Idea"` (case-insensitive).
+- Numeric values must contain digits only.
+- The input can contain a maximum of **15 characters**.
 
-- Allows a maximum of **5 food preferences**.
-- Each food preference can contain a maximum of **25 characters**.
-- **"No preferences"** cannot be combined with other food preferences.
-- The **"No preferences"** check is case-insensitive.
+> **Note:** The Meal Planner currently does **not** enforce a 500–10,000 calorie range in the Server Action.
+
+### Personal Food Preferences
+
+- Maximum of **5 preferences**.
+- Each preference can contain a maximum of **25 characters**.
+- Empty comma-separated values are removed.
+- `"No preferences"` is case-insensitive.
+- If `"No preferences"` is entered, no other preference can be entered.
 
 ---
 
-### 🍳 Recipe Suggestion Validation
+## Recipe Suggestion Validation
 
-#### Daily Calorie Target
+### Daily Calorie Target
 
-- Accepts a numeric calorie target.
-- Accepts **"No Idea"** when the user does not know their calorie target.
-- Numeric validation allows digits only.
-- The **"No Idea"** check is case-insensitive.
-- Calorie targets must be between **500 and 10,000 calories**.
+- A numeric value or `"No Idea"` can be entered.
+- `"No Idea"` is case-insensitive.
+- Numeric values must contain digits only.
+- Numeric values must be between **500 and 10,000 calories**.
+- The input can contain a maximum of **15 characters**.
 
-#### Ingredients to Include
+### Ingredients to Include
 
-- Allows a maximum of **5 ingredients**.
+- Maximum of **5 ingredients**.
 - Each ingredient can contain a maximum of **25 characters**.
-- Empty values are removed from comma-separated input.
-- **"No ingredients"** is treated as an exclusive option.
-  - If **"No ingredients"** is entered, no other ingredient can be entered.
+- Empty comma-separated values are removed.
+- `"None"` is case-insensitive.
+- If `"None"` is entered, no other ingredient can be entered.
 
-- The **"No ingredients"** check is case-insensitive.
+### Ingredients to Exclude
 
-#### Ingredients to Exclude
+The same validation rules are applied:
 
-- Allows a maximum of **5 ingredients**.
-- Each ingredient can contain a maximum of **25 characters**.
-- Empty values are removed from comma-separated input.
-- **"No ingredients"** is treated as an exclusive option.
-  - If **"No ingredients"** is entered, no other ingredient can be entered.
-
-- The **"No ingredients"** check is case-insensitive.
+- Maximum of **5 ingredients**.
+- Maximum of **25 characters per ingredient**.
+- Empty comma-separated values are removed.
+- `"None"` is case-insensitive.
+- `"None"` cannot be combined with other ingredients.
 
 ---
 
-### 🔥 Calorie Tracker Validation
+## Calorie Tracker Validation
 
-#### Foods Eaten
+### Food Items
 
-- Allows a maximum of **8 foods**.
-- Each food name can contain a maximum of **25 characters**.
-- Empty values are removed from comma-separated input.
+- Maximum of **8 food items**.
+- Each food item can contain a maximum of **25 characters**.
+- Empty comma-separated values are removed.
 
-#### Portion Sizes
+### Portion Sizes
 
-- Allows portion sizes for a maximum of **8 foods**.
+- Maximum of **8 portion sizes**.
 - Each portion size can contain a maximum of **25 characters**.
-- Empty values are removed from comma-separated input.
+- Empty comma-separated values are removed.
 
-#### Approximate Total Calories
+### Approximate Total Calories
 
-- Accepts a numeric calorie value.
-- Accepts **"No Idea"** when the user does not know the total calories.
-- Numeric validation allows digits only.
-- The **"No Idea"** check is case-insensitive.
-- The value cannot be longer than **15 characters**.
+- A numeric value or `"No Idea"` can be entered.
+- `"No Idea"` is case-insensitive.
+- Numeric values must contain digits only.
+- Maximum input length is **15 characters**.
 
-#### Approximate Total Macronutrients
+### Approximate Total Macronutrients
 
-- Accepts **"No Idea"** when the user does not know their approximate macronutrients.
-- The value cannot be longer than **30 characters**.
-- Text-based macronutrient information is supported, such as protein, carbohydrates, and fat values.
-
----
-
-### 🛡️ Server-Side Validation
-
-DietSpring performs these validations inside **Next.js Server Actions** before the submitted data is used to construct the AI prompt.
-
-This ensures that the application validates important input constraints on the server instead of relying only on frontend form restrictions.
+- `"No Idea"` is accepted.
+- `"No Idea"` is case-insensitive.
+- The input can contain a maximum of **30 characters**.
+- Other text is also accepted as long as it does not exceed the 30-character limit.
 
 ---
 
-## 📂 History
+# 📚 History
 
-> **Never lose track of your previous AI-generated nutrition records.**
+DietSpring stores generated results so users can access their previous AI-generated content.
 
-Users can view their previous:
+The following information is stored for the corresponding features:
 
-- 🍽️ Meal Plans
-- 🍳 Recipe Suggestions
-- 🔥 Calorie Tracking Records
+| Feature           | Stored Information                                |
+| ----------------- | ------------------------------------------------- |
+| Meal Planner      | User inputs and AI-generated meal plan            |
+| Recipe Suggestion | User inputs and AI-generated recipe               |
+| Calorie Tracker   | User inputs and AI-generated nutritional analysis |
 
-Each history entry stores information such as:
-
-| 📁 Feature           | 📌 Saved Information                                     |
-| :------------------- | :------------------------------------------------------- |
-| 🍽️ Meal Planner      | User Inputs, AI-generated Response                       |
-| 🍳 Recipe Suggestion | User Inputs, AI-generated Response                       |
-| 🔥 Calorie Tracker   | User Inputs, AI-generated Response, Creation Date & Time |
-
-This allows users to revisit previously generated nutrition recommendations and analyses.
+Creation date and time are also stored for generated records.
 
 ---
 
-## 🛠️ Technologies Used
+# 🛠️ Technologies Used
 
-| Category                       | Technologies                                   |
-| :----------------------------- | :--------------------------------------------- |
-| 🎨 **Frontend**                | Next.js 16, React 19, Tailwind CSS, ShadCN UI  |
-| ⚙️ **Backend**                 | Next.js Server Actions, Prisma ORM             |
-| 🔐 **Authentication**          | Clerk Authentication                           |
-| 🗄️ **Database**                | Neon PostgreSQL                                |
-| 🤖 **Artificial Intelligence** | Google Gemini 3.1 Flash Lite, Google GenAI SDK |
-| ☁️ **Deployment**              | Vercel                                         |
+| Technology                       | Purpose                                                    |
+| -------------------------------- | ---------------------------------------------------------- |
+| **Next.js 16**                   | Full-stack React framework                                 |
+| **React 19**                     | User interface                                             |
+| **Tailwind CSS**                 | Styling                                                    |
+| **shadcn/ui**                    | UI components                                              |
+| **Next.js Server Actions**       | Server-side form processing and validation                 |
+| **Prisma ORM**                   | Database access                                            |
+| **Clerk**                        | Authentication and user management                         |
+| **Neon PostgreSQL**              | Database                                                   |
+| **Google Gemini 3.1 Flash Lite** | AI-generated meal plans, recipes, and nutritional analysis |
+| **Google GenAI SDK**             | Communication with Google Gemini                           |
+| **Vercel**                       | Deployment                                                 |
 
 ---
 
-## 💻 Running the Project Locally
+# 🚀 Run DietSpring Locally
 
-> **Follow these steps to run DietSpring on your local machine.**
-
-### 1. Clone the Repository
-
-Clone the DietSpring repository to your local machine:
+## 1. Clone the Repository
 
 ```bash
 git clone https://github.com/somenath203/DietSpring.git
 ```
 
-Then navigate into the project directory:
+Navigate into the project directory:
 
 ```bash
-cd DietSpring
+cd <project-directory>
 ```
 
 ---
 
-### 2. Configure Environment Variables
+## 2. Install Dependencies
 
-Create a `.env` file in the root directory of the project and configure all the required environment variables according to the provided `.env.example` file.
-
-The following environment variables are required:
-
-```env
-NEON_DATABASE_URL=
-
-NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=
-
-CLERK_SECRET_KEY=
-
-NEXT_PUBLIC_CLERK_SIGN_IN_FALLBACK_REDIRECT_URL=
-
-NEXT_PUBLIC_CLERK_SIGN_UP_FALLBACK_REDIRECT_URL=
-
-GOOGLE_GEMINI_API_KEY=
-```
-
-#### Environment Variables
-
-| Variable                                          | Purpose                                              |
-| :------------------------------------------------ | :--------------------------------------------------- |
-| `NEON_DATABASE_URL`                               | Connection URL for the Neon PostgreSQL database      |
-| `NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY`               | Clerk publishable key used by the application        |
-| `CLERK_SECRET_KEY`                                | Clerk secret key used for server-side authentication |
-| `NEXT_PUBLIC_CLERK_SIGN_IN_FALLBACK_REDIRECT_URL` | Fallback URL after a successful sign-in              |
-| `NEXT_PUBLIC_CLERK_SIGN_UP_FALLBACK_REDIRECT_URL` | Fallback URL after a successful sign-up              |
-| `GOOGLE_GEMINI_API_KEY`                           | API key used to access Google Gemini                 |
-
-> ⚠️ **Do not commit your `.env` file or expose your secret API keys publicly.**
-
----
-
-### 3. Install Dependencies
-
-Install all project dependencies using pnpm:
+Using pnpm:
 
 ```bash
 pnpm install
@@ -421,34 +373,60 @@ pnpm install
 
 ---
 
-### 4. Start the Development Server
+## 3. Configure Environment Variables
 
-Start the Next.js development server:
+Create a `.env` file in the root directory and add the required environment variables:
+
+```env
+NEON_DATABASE_URL="your_neon_database_url"
+
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY="your_clerk_publishable_key"
+CLERK_SECRET_KEY="your_clerk_secret_key"
+
+NEXT_PUBLIC_CLERK_SIGN_IN_FALLBACK_REDIRECT_URL="your_sign_in_redirect_url"
+NEXT_PUBLIC_CLERK_SIGN_UP_FALLBACK_REDIRECT_URL="your_sign_up_redirect_url"
+
+GOOGLE_GEMINI_API_KEY="your_google_gemini_api_key"
+```
+
+Replace the placeholder values with your actual credentials.
+
+---
+
+## 4. Run the Development Server
 
 ```bash
 pnpm dev
 ```
 
-Once the development server starts, open the local URL shown in your terminal to access DietSpring in your browser.
+Then open the local application in your browser:
+
+```text
+http://localhost:3000
+```
 
 ---
 
-## 🌐 Live Website
+# 🌐 Live Website
 
-🚀 **Try DietSpring here:**
+You can visit the deployed version of DietSpring here:
 
-🔗 **https://dietspringsom.vercel.app/**
+**[Visit DietSpring](https://dietspringsom.vercel.app/)**
 
 ---
 
-## ⚠️ Disclaimer
+# ⚠️ Disclaimer
 
-> **Important**
+DietSpring provides **AI-generated nutritional and dietary information for informational purposes only**.
 
-DietSpring uses **Google Gemini 3.1 Flash Lite** to generate AI-powered meal plans, recipe suggestions, and calorie analysis.
+The responses generated by the AI model may contain inaccurate, incomplete, or unsuitable information. DietSpring does not provide professional medical, nutritional, or dietary advice, and the creator cannot guarantee the accuracy, completeness, or suitability of AI-generated recommendations.
 
-The generated responses are intended for **informational purposes only** and may not always be completely accurate. They should **not** be considered professional medical, nutritional, or dietary advice.
+The creator also does not control the exact responses generated by the AI model.
 
-While DietSpring provides the prompts and user inputs to the AI model, the generated content is produced by **Google Gemini**. The creator of this project has **no control** over the responses generated by the AI model and cannot guarantee the accuracy, completeness, or suitability of every response.
+If you have specific medical, dietary, nutritional, or health-related concerns, consult a **qualified healthcare professional or registered dietitian** before making decisions based on the information provided by DietSpring.
 
-**Always consult a qualified healthcare professional or registered dietitian before making important health or nutrition decisions.**
+---
+
+## 🌱 About DietSpring
+
+DietSpring was built to explore how generative AI can be used to create personalized nutrition and meal-planning experiences while combining AI with authentication, database storage, server-side validation, and a modern full-stack web application architecture.

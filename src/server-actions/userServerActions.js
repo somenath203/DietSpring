@@ -130,13 +130,34 @@ export const editUserProfile = async (prevState, formData) => {
 
     const rawData = Object.fromEntries(formData);
 
-    const allergiesNoOfWordsGreaterThanTwenty = rawData?.allergies?.split(" ");
+    const allergiesOfUser = rawData?.allergies
+      ?.split(",")
+      .map((allergy) => allergy.trim())
+      .filter((allergy) => allergy !== "");
 
-    if (allergiesNoOfWordsGreaterThanTwenty.length > 20) {
+    if (allergiesOfUser.some((allergy) => allergy.toLowerCase() === "no allergies") && allergiesOfUser.length > 1) {
 
       throw new Error(
-        "make sure what you wrote in 'allergies' is lesser than or equals to 20 words",
+        'If you enter "No allergies", you cannot enter any other allergy.',
       );
+
+    }
+
+    if (allergiesOfUser?.length > 5) {
+
+      throw new Error("You can enter a maximum of 5 allergies.");
+
+    }
+
+    for (const allergy of allergiesOfUser) {
+
+      if (allergy.length > 25) {
+
+        throw new Error(
+          "Each entered allergy cannot be longer than 25 characters.",
+        );
+
+      }
 
     }
 

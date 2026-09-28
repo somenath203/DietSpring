@@ -3,7 +3,6 @@ import { currentUser } from '@clerk/nextjs/server';
 
 import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
 import {
   Select,
   SelectContent,
@@ -201,14 +200,15 @@ const page = async ({ params }) => {
               allergies" in case you have no allegies))
             </Label>
 
-            <Textarea
+            <Input
               name="allergies"
-              placeholder="briefly mention your allergies(write 'no allergies' in case you don't have any allergy)"
+              placeholder="briefly mention your allergies"
               rows={6}
-              className="!resize-none border border-green-600"
+              className="border border-green-600"
               defaultValue={user.allergies}
               required
             />
+            
           </div>
 
           <SubmitButton className="py-5 lg:py-7">Edit Profile</SubmitButton>

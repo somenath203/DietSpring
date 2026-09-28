@@ -437,7 +437,7 @@ Once the development server starts, open the local URL shown in your terminal to
 
 🚀 **Try DietSpring here:**
 
-🔗 **https://diet-spring-prod.vercel.app/**
+🔗 **https://dietspringsom.vercel.app/**
 
 ---
 

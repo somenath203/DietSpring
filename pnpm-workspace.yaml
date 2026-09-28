@@ -1,5 +1,5 @@
-minimumReleaseAge: 10080
-minimumReleaseAgeStrict: true
+minimumReleaseAge: 4320
+minimumReleaseAgeStrict: false
 minimumReleaseAgeIgnoreMissingTime: false
 blockExoticSubdeps: true
 trustPolicy: no-downgrade

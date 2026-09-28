@@ -52,13 +52,55 @@ export const createNewCalorieTracking = async (prevState, formData) => {
       }
     }
 
-    if (rawData?.approximateTotalCalorieOfAllTheFoodsTogetherTakenToday?.trim().length > 15) {
+    if (
+      rawData?.approximateTotalCalorieOfAllTheFoodsTogetherTakenToday?.trim()
+        .length > 15
+    ) {
       throw new Error(
         "Approximate total calories cannot be longer than 15 characters.",
       );
     }
 
-    if (rawData?.approximateTotalMacroNutrientsOfAllTheFoodsTogetherTakenToday?.trim().length > 30) {
+    if (
+      rawData?.approximateTotalMacroNutrientsOfAllTheFoodsTogetherTakenToday?.trim()
+        .length > 30
+    ) {
+      throw new Error(
+        "Approximate total macronutrients cannot be longer than 30 characters.",
+      );
+    }
+
+    const approximateTotalCalories =
+      rawData?.approximateTotalCalorieOfAllTheFoodsTogetherTakenToday?.trim();
+
+    if (
+      approximateTotalCalories &&
+      approximateTotalCalories.toLowerCase() !== "no idea" &&
+      !/^\d+$/.test(approximateTotalCalories)
+    ) {
+      throw new Error(
+        'Please enter a valid total calorie value or enter "No Idea".',
+      );
+    }
+
+    if (
+      approximateTotalCalories &&
+      approximateTotalCalories.toLowerCase() !== "no idea" &&
+      approximateTotalCalories.length > 15
+    ) {
+      throw new Error(
+        "Approximate total calories cannot be longer than 15 characters.",
+      );
+    }
+
+    const approximateTotalMacronutrients =
+      rawData?.approximateTotalMacroNutrientsOfAllTheFoodsTogetherTakenToday?.trim();
+
+    if (
+      approximateTotalMacronutrients &&
+      approximateTotalMacronutrients.toLowerCase() !== "no idea" &&
+      approximateTotalMacronutrients.length > 30
+    ) {
       throw new Error(
         "Approximate total macronutrients cannot be longer than 30 characters.",
       );

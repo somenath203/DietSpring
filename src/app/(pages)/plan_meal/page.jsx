@@ -125,7 +125,7 @@ const page = async () => {
           <div className="flex flex-col gap-2">
             
             <Label htmlFor="caloric-target">
-              Daily Calorie Target (Enter "No Idea" if you don't know your daily calorie target. Maximum 10 characters.)
+              Daily Calorie Target (Enter "No Idea" if you're unsure of your daily calorie target.)
             </Label>
 
             <Input

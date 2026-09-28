@@ -19,27 +19,79 @@ export const createNewReceipeSuggestion = async (prevState, formData) => {
 
     const rawData = Object.fromEntries(formData);
 
+    const dailyCalorieTarget = rawData?.dailyCalorieTarget?.trim();
+
+    if (
+      dailyCalorieTarget &&
+      dailyCalorieTarget.toLowerCase() !== "no idea" &&
+      !/^\d+$/.test(dailyCalorieTarget) // Checks whether the calorie target contains only digits.
+    ) {
+      throw new Error(
+        'Please enter a valid calorie target or enter "No Idea".',
+      );
+    }
+
+    if (dailyCalorieTarget && dailyCalorieTarget.toLowerCase() !== "no idea") {
+
+      const calorieTarget = Number(dailyCalorieTarget);
+
+      if (calorieTarget < 500 || calorieTarget > 10000) {
+
+        throw new Error("Daily calorie target must be between 500 and 10000.");
+
+      }
+
+    }
+
     const ingredientsToIncludeInReceipe = rawData?.ingredientsToInclude
       ?.split(",")
       .map((ingredient) => ingredient.trim())
       .filter((ingredient) => ingredient !== "");
 
+    if (
+      ingredientsToIncludeInReceipe.some(
+        (ingredient) => ingredient.toLowerCase() === "none",
+      ) &&
+      ingredientsToIncludeInReceipe.length > 1
+    ) {
+
+      throw new Error('If you enter "No ingredients", you cannot enter any other ingredient to include.');
+
+    }
+
     if (ingredientsToIncludeInReceipe?.length > 5) {
+
       throw new Error(
         "You can enter a maximum of 5 ingredients that you want to include.",
       );
+
     }
 
     for (const ingredient of ingredientsToIncludeInReceipe) {
+
       if (ingredient.length > 25) {
+
         throw new Error("Each ingredient cannot be longer than 25 characters.");
+
       }
+      
     }
 
     const ingredientsToExcludeInReceipe = rawData?.ingredientsToExclude
       ?.split(",")
       .map((ingredient) => ingredient.trim())
       .filter((ingredient) => ingredient !== "");
+
+    if (
+      ingredientsToExcludeInReceipe.some(
+        (ingredient) => ingredient.toLowerCase() === "none",
+      ) &&
+      ingredientsToExcludeInReceipe.length > 1
+    ) {
+      throw new Error(
+        'If you enter "No ingredients", you cannot enter any other ingredient to exclude.',
+      );
+    }
 
     if (ingredientsToExcludeInReceipe?.length > 5) {
       throw new Error(

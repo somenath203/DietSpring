@@ -3,7 +3,6 @@ import { currentUser } from '@clerk/nextjs/server';
 
 import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
 import {
   Select,
   SelectContent,
@@ -132,13 +131,12 @@ const page = async () => {
 
                 <div className="flex flex-col gap-2">
 
-                    <Label>Briefly mention the allergies you have (max 20 words (write "no allergies" in case you have no allegies))</Label>
+                    <Label>Briefly mention any allergies you have (up to 5). If you don't have any allergies, enter "No allergies."</Label>
 
-                    <Textarea 
+                    <Input 
                         name="allergies"
-                        placeholder="briefly mention your allergies(write 'no allergies' in case you don't have any allergy)" 
-                        rows={6} 
-                        className="!resize-none border border-green-600"
+                        placeholder="briefly mention your allergies" 
+                        className='border border-green-600'
                         required
                     />
 

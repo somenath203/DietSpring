@@ -2,32 +2,31 @@
 
 [![DietSpring Demo Video](https://github.com/user-attachments/assets/ace8e72e-3017-4167-895a-1f4c011d771b)](https://www.youtube.com/watch?v=f5BVZJVF8mQ)
 
-> **DietSpring** is an AI-powered personalized nutrition and diet application that uses Google Gemini 3.1 Flash Lite to generate personalized meal plans, recipe suggestions, and meal-based calorie and nutritional analysis.
+> **DietSpring** is an AI-powered personalized nutrition and diet application that uses Google Gemini 3.1 Flash-Lite to generate personalized meal plans, recipe suggestions, and meal-based calorie and nutritional analysis.
 
 **Click the image above to watch the DietSpring demo video.** 🎥
 
 ---
 
-## 📖 Table of Contents
+## Table of Contents
 
-- [Introduction](#-introduction)
-- [What Problem Does DietSpring Solve?](#-what-problem-does-dietspring-solve)
-- [Features](#-features)
-  - [Profile Setup](#1-profile-setup)
-  - [Meal Planner](#2-meal-planner)
-  - [Recipe Suggestion](#3-recipe-suggestion)
-  - [Calorie Tracker](#4-calorie-tracker)
-
-- [Input Validation](#-input-validation)
-- [History](#-history)
-- [Technologies Used](#-technologies-used)
-- [Run DietSpring Locally](#-run-dietspring-locally)
-- [Live Website](#-live-website)
-- [Disclaimer](#-disclaimer)
+- [Introduction](#introduction)
+- [What Problem Does DietSpring Solve?](#what-problem-does-dietspring-solve)
+- [Features](#features)
+  - [1. Profile Setup](#1-profile-setup)
+  - [2. Meal Planner](#2-meal-planner)
+  - [3. Recipe Suggestion](#3-recipe-suggestion)
+  - [4. Calorie Tracker](#4-calorie-tracker)
+- [Input Validation](#input-validation)
+- [History](#history)
+- [Technologies Used](#technologies-used)
+- [Run DietSpring Locally](#run-dietspring-locally)
+- [Live Website](#live-website)
+- [Disclaimer](#disclaimer)
 
 ---
 
-## 📖 Introduction
+## Introduction
 
 DietSpring is an AI-powered personalized nutrition and diet application designed to help users make more informed food and meal decisions.
 
@@ -38,7 +37,7 @@ After completing their health profile, users can use DietSpring to:
 - Analyze the approximate calories and macronutrients of a meal.
 - Get meal suggestions based on their health goals and dietary preferences.
 
-DietSpring uses **Google Gemini 3.1 Flash Lite** to generate the AI-powered responses.
+DietSpring uses **Google Gemini 3.1 Flash-Lite** to generate the AI-powered responses.
 
 ---
 
@@ -59,9 +58,9 @@ DietSpring provides AI-generated suggestions based on the information provided b
 
 ---
 
-# Features
+## Features
 
-## 1. Profile Setup
+### 1. Profile Setup
 
 Users must complete their health profile before using the main DietSpring features.
 
@@ -82,11 +81,11 @@ Authentication and user management are handled using **Clerk**.
 
 ---
 
-## 2. Meal Planner
+### 2. Meal Planner
 
 DietSpring can generate a **personalized one-day meal plan** based on the user's profile and selected requirements.
 
-### User Inputs
+#### User Inputs
 
 Users provide:
 
@@ -97,7 +96,7 @@ Users provide:
 
 The user's profile information, including allergies, is also considered.
 
-### Generated Meal Plan
+#### Generated Meal Plan
 
 The AI generates:
 
@@ -118,7 +117,7 @@ For each meal, the generated response includes:
 
 The response also includes the estimated total nutritional values for the entire day.
 
-### Additional Behavior
+#### Additional Behavior
 
 - If the calorie target is set to **"No Idea"**, the AI is instructed to estimate an appropriate daily calorie target.
 - The AI is instructed to respect the user's allergies.
@@ -130,11 +129,11 @@ The response also includes the estimated total nutritional values for the entire
 
 ---
 
-## 3. Recipe Suggestion
+### 3. Recipe Suggestion
 
 DietSpring can generate a personalized recipe based on the user's requirements.
 
-### User Inputs
+#### User Inputs
 
 Users provide:
 
@@ -146,7 +145,7 @@ Users provide:
 
 The user's profile and allergies are also considered.
 
-### Generated Recipe
+#### Generated Recipe
 
 The AI-generated recipe contains:
 
@@ -161,23 +160,23 @@ The AI-generated recipe contains:
 - Estimated Fat
 - Tips or Healthy Alternatives
 
-### Additional Behavior
+#### Additional Behavior
 
 - If the calorie target is set to **"No Idea"**, the AI is instructed to estimate an appropriate calorie target.
 - The AI is instructed to respect the user's allergies.
 - Requested ingredients are considered whenever possible.
-- Excluded ingredients are instructed not to be used.
+- The AI is instructed not to use excluded ingredients.
 - The selected meal type is considered.
 - The requested cooking time is considered.
 - The response is formatted using headings and bullet points rather than tables.
 
 ---
 
-## 4. Calorie Tracker
+### 4. Calorie Tracker
 
 DietSpring can analyze a meal based on the food consumed by the user.
 
-### User Inputs
+#### User Inputs
 
 Users provide:
 
@@ -189,7 +188,7 @@ Users provide:
 
 The user's profile and allergies are also considered.
 
-### Generated Analysis
+#### Generated Analysis
 
 The AI-generated response contains:
 
@@ -203,7 +202,7 @@ The AI-generated response contains:
 - Healthier Alternatives or Suggestions
 - Personalized Recommendations
 
-### Additional Behavior
+#### Additional Behavior
 
 - If the calorie amount is set to **"No Idea"**, the AI is instructed to estimate it.
 - If the macronutrient information is set to **"No Idea"**, the AI is instructed to estimate it.
@@ -212,15 +211,15 @@ The AI-generated response contains:
 
 ---
 
-# Input Validation
+## Input Validation
 
 DietSpring performs **server-side input validation inside Next.js Server Actions before the data is included in the AI prompts**.
 
 This helps prevent invalid or unnecessarily large input values from being sent to the AI model.
 
-## Profile Validation
+### Profile Validation
 
-### Allergies
+#### Allergies
 
 - Maximum of **5 allergies** can be entered.
 - Each allergy can contain a maximum of **25 characters**.
@@ -230,9 +229,9 @@ This helps prevent invalid or unnecessarily large input values from being sent t
 
 ---
 
-## Meal Planner Validation
+### Meal Planner Validation
 
-### Daily Calorie Target
+#### Daily Calorie Target
 
 The current Meal Planner Server Action allows:
 
@@ -243,7 +242,7 @@ The current Meal Planner Server Action allows:
 
 > **Note:** The Meal Planner currently does **not** enforce a 500–10,000 calorie range in the Server Action.
 
-### Personal Food Preferences
+#### Personal Food Preferences
 
 - Maximum of **5 preferences**.
 - Each preference can contain a maximum of **25 characters**.
@@ -253,9 +252,9 @@ The current Meal Planner Server Action allows:
 
 ---
 
-## Recipe Suggestion Validation
+### Recipe Suggestion Validation
 
-### Daily Calorie Target
+#### Daily Calorie Target
 
 - A numeric value or `"No Idea"` can be entered.
 - `"No Idea"` is case-insensitive.
@@ -263,7 +262,7 @@ The current Meal Planner Server Action allows:
 - Numeric values must be between **500 and 10,000 calories**.
 - The input can contain a maximum of **15 characters**.
 
-### Ingredients to Include
+#### Ingredients to Include
 
 - Maximum of **5 ingredients**.
 - Each ingredient can contain a maximum of **25 characters**.
@@ -271,7 +270,7 @@ The current Meal Planner Server Action allows:
 - `"None"` is case-insensitive.
 - If `"None"` is entered, no other ingredient can be entered.
 
-### Ingredients to Exclude
+#### Ingredients to Exclude
 
 The same validation rules are applied:
 
@@ -283,28 +282,28 @@ The same validation rules are applied:
 
 ---
 
-## Calorie Tracker Validation
+### Calorie Tracker Validation
 
-### Food Items
+#### Food Items
 
 - Maximum of **8 food items**.
 - Each food item can contain a maximum of **25 characters**.
 - Empty comma-separated values are removed.
 
-### Portion Sizes
+#### Portion Sizes
 
 - Maximum of **8 portion sizes**.
 - Each portion size can contain a maximum of **25 characters**.
 - Empty comma-separated values are removed.
 
-### Approximate Total Calories
+#### Approximate Total Calories
 
 - A numeric value or `"No Idea"` can be entered.
 - `"No Idea"` is case-insensitive.
 - Numeric values must contain digits only.
 - Maximum input length is **15 characters**.
 
-### Approximate Total Macronutrients
+#### Approximate Total Macronutrients
 
 - `"No Idea"` is accepted.
 - `"No Idea"` is case-insensitive.
@@ -313,7 +312,7 @@ The same validation rules are applied:
 
 ---
 
-# History
+## History
 
 DietSpring stores generated results so users can access their previous AI-generated content.
 
@@ -329,7 +328,7 @@ Creation date and time are also stored for generated records.
 
 ---
 
-# Technologies Used
+## Technologies Used
 
 | Technology                       | Purpose                                                    |
 | -------------------------------- | ---------------------------------------------------------- |
@@ -341,15 +340,15 @@ Creation date and time are also stored for generated records.
 | **Prisma ORM**                   | Database access                                            |
 | **Clerk**                        | Authentication and user management                         |
 | **Neon PostgreSQL**              | Database                                                   |
-| **Google Gemini 3.1 Flash Lite** | AI-generated meal plans, recipes, and nutritional analysis |
+| **Google Gemini 3.1 Flash-Lite** | AI-generated meal plans, recipes, and nutritional analysis |
 | **Google GenAI SDK**             | Communication with Google Gemini                           |
 | **Vercel**                       | Deployment                                                 |
 
 ---
 
-# Run DietSpring Locally
+## Run DietSpring Locally
 
-## 1. Clone the Repository
+### 1. Clone the Repository
 
 ```bash
 git clone https://github.com/somenath203/DietSpring.git
@@ -358,12 +357,12 @@ git clone https://github.com/somenath203/DietSpring.git
 Navigate into the project directory:
 
 ```bash
-cd <project-directory>
+cd DietSpring
 ```
 
 ---
 
-## 2. Install Dependencies
+### 2. Install Dependencies
 
 Using pnpm:
 
@@ -373,7 +372,7 @@ pnpm install
 
 ---
 
-## 3. Configure Environment Variables
+### 3. Configure Environment Variables
 
 Create a `.env` file in the root directory and add the required environment variables:
 
@@ -393,7 +392,7 @@ Replace the placeholder values with your actual credentials.
 
 ---
 
-## 4. Run the Development Server
+### 4. Run the Development Server
 
 ```bash
 pnpm dev
@@ -407,7 +406,7 @@ http://localhost:3000
 
 ---
 
-# Live Website
+## Live Website
 
 You can visit the deployed version of DietSpring here:
 
@@ -415,7 +414,7 @@ You can visit the deployed version of DietSpring here:
 
 ---
 
-# Disclaimer
+## Disclaimer
 
 DietSpring provides **AI-generated nutritional and dietary information for informational purposes only**.
 

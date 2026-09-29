@@ -7,16 +7,12 @@ import { GoogleGenAI } from "@google/genai";
 import primsaClientConfig from "@/prismaClientConfig";
 import { fetchWholeProfileOfUser } from "./userServerActions";
 
-
 const ai = new GoogleGenAI({ apiKey: process.env.GOOGLE_GEMINI_API_KEY });
 
-
 export const createNewMealPlan = async (prevState, formData) => {
-
   let createdNewPlanMeal;
 
   try {
-
     const user = await currentUser();
 
     const fetchAllDetailsOfUser = await fetchWholeProfileOfUser();
@@ -25,16 +21,24 @@ export const createNewMealPlan = async (prevState, formData) => {
 
     const targetCalorie = rawData?.targetCalorie?.trim();
 
-    if (targetCalorie && targetCalorie.toLowerCase() !== "no idea" && !/^\d+$/.test(targetCalorie)) {
-
-      throw new Error('Please enter a valid calorie target or enter "No Idea".');
-
+    if (
+      targetCalorie &&
+      targetCalorie.toLowerCase() !== "no idea" &&
+      !/^\d+$/.test(targetCalorie)
+    ) {
+      throw new Error(
+        'Please enter a valid calorie target or enter "No Idea".',
+      );
     }
 
-    if (targetCalorie && targetCalorie.toLowerCase() !== "no idea" && targetCalorie.length > 15) {
-
-      throw new Error("Daily calorie target cannot be longer than 15 characters.");
-      
+    if (
+      targetCalorie &&
+      targetCalorie.toLowerCase() !== "no idea" &&
+      targetCalorie.length > 15
+    ) {
+      throw new Error(
+        "Daily calorie target cannot be longer than 15 characters.",
+      );
     }
 
     const preferences = rawData?.personalPreference
@@ -42,30 +46,28 @@ export const createNewMealPlan = async (prevState, formData) => {
       .map((preference) => preference.trim())
       .filter((preference) => preference !== "");
 
-    if (preferences.some((preference) => preference.toLowerCase() === "no preferences") && preferences.length > 1) {
-
+    // "No Preference" must be entered alone and cannot be combined with other preferences.
+    if (
+      preferences.some(
+        (preference) => preference.toLowerCase() === "no preference",
+      ) &&
+      preferences.length > 1
+    ) {
       throw new Error(
-        'If you enter "No preferences", you cannot enter any other food preference.',
+        'If you enter "No Preference", you cannot enter any other food preference.',
       );
-
     }
 
-
-    if (preferences?.length > 5) {
-
+    if (preferences.length > 5) {
       throw new Error("You can enter a maximum of 5 food preferences.");
-
     }
-
 
     for (const preference of preferences) {
-
       if (preference.length > 25) {
-
-        throw new Error("Each food preference cannot be longer than 25 characters.");
-
+        throw new Error(
+          "Each food preference cannot be longer than 25 characters.",
+        );
       }
-
     }
 
     const mealPlanPrompt = `
@@ -230,17 +232,12 @@ export const createNewMealPlan = async (prevState, formData) => {
     let markdownResponse = "";
 
     for await (const chunk of res) {
-
       if (chunk?.text) {
-
         markdownResponse += chunk?.text;
-
       }
-
     }
 
     if (markdownResponse) {
-
       createdNewPlanMeal = await primsaClientConfig.mealPlan.create({
         data: {
           healthGoal: rawData?.healthGoal || "",
@@ -254,28 +251,22 @@ export const createNewMealPlan = async (prevState, formData) => {
           timeOfCreation: rawData?.timeOfCreation || "",
         },
       });
-
     }
-
   } catch (error) {
-
     console.log(error);
 
     return {
-      message: error?.message || "there was an error while creating a new meal plan, please try again",
+      message:
+        error?.message ||
+        "there was an error while creating a new meal plan, please try again",
     };
-
   }
 
   redirect(`/view_particular_meal/${createdNewPlanMeal?.id}`);
-
 };
 
-
 export const fetchAllMealsCreatedByTheUser = async () => {
-
   try {
-
     const user = await currentUser();
 
     const allMealsCreatedByTheUser = await primsaClientConfig.mealPlan.findMany(
@@ -287,38 +278,31 @@ export const fetchAllMealsCreatedByTheUser = async () => {
     );
 
     return allMealsCreatedByTheUser.reverse();
-
   } catch (error) {
-
     console.log(error);
 
     return {
-      message: error?.message || "There was an error while fetching your recipe suggestions, please try again.",
+      message:
+        error?.message ||
+        "There was an error while fetching your recipe suggestions, please try again.",
     };
-
   }
-
 };
 
-
 export const fetchParticularMealById = async (mealPlanId) => {
-
   try {
-
     return primsaClientConfig.mealPlan.findUnique({
       where: {
         id: mealPlanId,
       },
     });
-
   } catch (error) {
-
     console.log(error);
 
     return {
-      message: error?.message || "something went wrong while fetching the meal, please try again",
+      message:
+        error?.message ||
+        "something went wrong while fetching the meal, please try again",
     };
-
   }
-  
 };

@@ -92,7 +92,7 @@ Users provide:
 - Health Goal
 - Diet Preference
 - Daily Calorie Target
-- Personal Food Preferences
+- Food Preferences
 
 The user's profile information, including allergies, is also considered.
 
@@ -119,11 +119,9 @@ The response also includes the estimated total nutritional values for the entire
 
 #### Additional Behavior
 
-- If the calorie target is set to **"No Idea"**, the AI is instructed to estimate an appropriate daily calorie target.
-- The AI is instructed to respect the user's allergies.
-- Personal food preferences are considered when generating the plan.
-- The selected health goal is considered.
-- The selected diet preference is followed.
+- If the calorie target is set to **"No Idea"**, the AI is instructed to estimate an appropriate daily calorie target based on the user's profile and health goal.
+- The AI is instructed to respect the user's allergies and food preferences.
+- The selected health goal and diet preference are considered when generating the meal plan.
 - The generated meal plan is designed to be practical and balanced.
 - The response is formatted using headings and bullet points rather than tables.
 
@@ -244,11 +242,11 @@ The current Meal Planner Server Action allows:
 
 #### Personal Food Preferences
 
-- Maximum of **5 preferences**.
+- A maximum of **5 preferences** can be entered.
 - Each preference can contain a maximum of **25 characters**.
 - Empty comma-separated values are removed.
-- `"No preferences"` is case-insensitive.
-- If `"No preferences"` is entered, no other preference can be entered.
+- `"No Preference"` is case-insensitive.
+- If `"No Preference"` is entered, no other preference can be entered.
 
 ---
 

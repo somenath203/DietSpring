@@ -408,7 +408,7 @@ http://localhost:3000
 
 You can visit the deployed version of DietSpring here:
 
-**[Visit DietSpring](https://dietspringsom.vercel.app/)**
+**[Visit DietSpring](https://diet-spring.vercel.app/)**
 
 ---
 

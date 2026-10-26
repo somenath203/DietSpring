@@ -4,6 +4,7 @@ import { SignOutButton } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
 
 import { useToast } from "@/hooks/use-toast";
+import { Button } from "@/components/ui/button";
 
 
 const SignOutLink = () => {
@@ -25,9 +26,9 @@ const SignOutLink = () => {
   return (
     <SignOutButton redirectUrl="/">
 
-      <button className="w-full text-left" onClick={handleLogoutUserToast}>
+      <Button className="w-full text-left" onClick={handleLogoutUserToast}>
         Logout
-      </button>
+      </Button>
 
     </SignOutButton>
   )

@@ -1,9 +1,10 @@
 import { ClerkProvider } from '@clerk/nextjs';
-import dynamic from 'next/dynamic';
 import { Toaster } from "@/components/ui/toaster"
 
 import './globals.css';
 import Footer from './_components/all_purpose_component/Footer';
+import NavbarWrapper from './_components/navbar/NavbarWrapper';
+import Navbar from './_components/navbar/Navbar';
 
 export const metadata = {
   title: 'DietSpring',
@@ -13,26 +14,26 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
 
-  const NavbarDynamicComponent = dynamic(() => import('@/app/_components/navbar/Navbar'), { ssr: false });
-
   return (
     <ClerkProvider>
     
       <html lang="en" suppressHydrationWarning>
         
-        <body className="min-h-screen bg-gradient-to-tr from-green-50 to-white roboto-mono">
+        <body className="min-h-screen bg-gradient-to-tr from-green-50 to-white roboto-mono" suppressHydrationWarning>
           
-          <main className="px-20">
-            <NavbarDynamicComponent />
-          </main>
+          <header className="px-20">
+            <NavbarWrapper>
+              <Navbar />
+            </NavbarWrapper>
+          </header>
 
           <main className='px-10'>
             {children}
           </main>
 
-          <main className="px-20">
+          <footer className="px-20">
             <Footer />
-          </main>
+          </footer>
 
           <Toaster />
         

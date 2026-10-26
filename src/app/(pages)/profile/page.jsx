@@ -23,13 +23,13 @@ const page = async () => {
 
 
   return (
-    <div className="px-16 py-10">
+    <div className="px-4 sm:px-8 lg:px-16 py-6 sm:py-10">
 
-      <p className="text-3xl text-center roboto-bold tracking-wider text-green-600 mb-6">
+      <p className="text-2xl sm:text-3xl text-center roboto-bold tracking-wider text-green-600 mb-4 sm:mb-6">
         Profile
       </p>
 
-      <div className="flex flex-col gap-3 lg:gap-10 mt-10 text-lg">
+      <div className="flex flex-col gap-6 lg:gap-10 mt-6 sm:mt-10 text-base sm:text-lg">
 
         <div className="flex justify-center">
 
@@ -38,34 +38,34 @@ const page = async () => {
             alt="profile image"
             width={100}
             height={100}
-            className="rounded-full border-4 border-green-700 object-cover w-44 h-44 shadow-lg"
+            className="rounded-full border-4 border-green-700 object-cover w-32 h-32 sm:w-44 sm:h-44 shadow-lg"
           />
 
         </div>
 
-        <div className="flex flex-col gap-8 lg:gap-5 text-lg lg:text-xl">
+        <div className="flex flex-col gap-5 lg:gap-5 text-base sm:text-lg lg:text-xl">
 
 
-          <div className="text-center flex flex-col gap-2 lg:flex-row lg:gap-0 lg:justify-between">
+          <div className="text-center flex flex-col gap-1 lg:flex-row lg:gap-0 lg:justify-between">
 
             <span className="font-semibold">Full Name:</span>
 
-            <span>{user?.firstName} {user?.lastName}</span>
+            <span className="break-words">{user?.firstName} {user?.lastName}</span>
 
 
           </div>
 
 
-          <div className="text-center flex flex-col gap-2 lg:flex-row lg:gap-0 lg:justify-between">
+          <div className="text-center flex flex-col gap-1 lg:flex-row lg:gap-0 lg:justify-between">
 
             <span className="font-semibold">Email Address:</span>
 
-            <span className="break-words">{user?.email || 'Not Available'}</span>
+            <span className="break-all lg:break-words">{user?.email || 'Not Available'}</span>
 
           </div>
 
 
-          <div className="text-center flex flex-col gap-2 lg:flex-row lg:gap-0 lg:justify-between">
+          <div className="text-center flex flex-col gap-1 lg:flex-row lg:gap-0 lg:justify-between">
 
             <span className="font-semibold">Age:</span>
 
@@ -74,7 +74,7 @@ const page = async () => {
           </div>
 
 
-          <div className="text-center flex flex-col gap-2 lg:flex-row lg:gap-0 lg:justify-between">
+          <div className="text-center flex flex-col gap-1 lg:flex-row lg:gap-0 lg:justify-between">
 
             <span className="font-semibold">Gender:</span>
 
@@ -83,7 +83,7 @@ const page = async () => {
           </div>
 
 
-          <div className="text-center flex flex-col gap-2 lg:flex-row lg:gap-0 lg:justify-between">
+          <div className="text-center flex flex-col gap-1 lg:flex-row lg:gap-0 lg:justify-between">
 
             <span className="font-semibold">Height:</span>
 
@@ -92,7 +92,7 @@ const page = async () => {
           </div>
 
 
-          <div className="text-center flex flex-col gap-2 lg:flex-row lg:gap-0 lg:justify-between">
+          <div className="text-center flex flex-col gap-1 lg:flex-row lg:gap-0 lg:justify-between">
 
             <span className="font-semibold">Weight:</span>
             
@@ -100,18 +100,18 @@ const page = async () => {
 
           </div>
 
-          <div className="text-center flex flex-col gap-2 lg:flex-row lg:gap-0 lg:justify-between">
+          <div className="text-center flex flex-col gap-1 lg:flex-row lg:gap-0 lg:justify-between">
 
             <span className="font-semibold">Activity Level:</span>
             
-            <span>{user?.activityLevel || 'Not Available'}</span>
+            <span className="break-words">{user?.activityLevel || 'Not Available'}</span>
 
           </div>
 
         </div>
 
-        <Link href={`/profile/edit/${user.id}`} className="w-full mt-4 lg:mt-0">
-          <Button className='py-8 lg:py-7 capitalize w-full'>Edit Profile</Button>
+        <Link href={`/profile/edit/${user.id}`} className="w-full mt-2 lg:mt-0">
+          <Button className='py-6 lg:py-7 capitalize w-full'>Edit Profile</Button>
         </Link>
 
       </div>

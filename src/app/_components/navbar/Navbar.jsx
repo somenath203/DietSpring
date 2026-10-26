@@ -2,7 +2,6 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { IoFitnessSharp } from 'react-icons/io5';
 import { GiHamburgerMenu } from "react-icons/gi";
-import { SignedIn, SignedOut, SignInButton, SignUpButton } from '@clerk/nextjs';
 import { currentUser } from '@clerk/nextjs/server';
 
 import { Button } from '@/components/ui/button';
@@ -34,13 +33,13 @@ const Navbar = async () => {
 
         <Link href="/" className="flex items-center gap-2">
 
-          <IoFitnessSharp size={70} className="text-green-500 font-bold" />
+          <IoFitnessSharp className="text-green-500 font-bold size-14 lg:size-16" />
 
-          <span className="text-4xl tracking-widest roboto-bold">DietSpring</span>
+          <span className="text-2xl lg:text-3xl tracking-widest roboto-bold">DietSpring</span>
 
         </Link>
 
-        <SignedIn>
+        {user && <>
 
           <div className="hidden lg:flex text-lg items-center justify-center gap-10">
 
@@ -67,7 +66,7 @@ const Navbar = async () => {
 
               </DropdownMenuTrigger>
 
-              <DropdownMenuContent align="start" sideOffSet={10}>
+              <DropdownMenuContent align="start" sideOffset={10}>
 
                 <DropdownMenuItem>
 
@@ -149,22 +148,21 @@ const Navbar = async () => {
 
           </div>
 
-        </SignedIn>
+        </>}
 
-        <SignedOut>
+        {!user && (
           <div className="flex items-center justify-center gap-4">
 
-            <SignInButton mode="modal">
-              <Button className="p-5">SignIn</Button>
-            </SignInButton>
+            <Button asChild className="p-5">
+              <Link href="/sign-in">Sign In</Link>
+            </Button>
 
-            <SignUpButton mode="modal">
-              <Button className="p-5">SignUp</Button>
-            </SignUpButton>
+            <Button asChild className="p-5">
+              <Link href="/sign-up">Sign Up</Link>
+            </Button>
 
           </div>
-
-        </SignedOut>
+        )}
 
       </div>
 
